@@ -1,5 +1,19 @@
 # batch-interceptor
 
+### Run Project:
+1- clone the project
+
+2- install the packages
+```
+yarn
+```
+3- run the project
+```
+yarn start
+```
+4- open the browser console to get details
+
+
 #### Problem:
 The clients makes a number (X) of requests to the provided endpoint with different file ids. All these requests are done within a certain time interval (1st request happens at moment S, 2nd request at S+2sec, and so on). The interceptor is expected to "catch" all these requests (for example, all requests executed within 10 seconds) and converge them into a single one (that contains all ids) and then dispatch that single request to the server. Once the response comes back from the server, the client should be able to properly resolve each of the X requests it has initially made.
 
