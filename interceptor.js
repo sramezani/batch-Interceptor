@@ -18,7 +18,8 @@ function batchInterceptor(instance) {
     let currentRequest = {};
     let allParams = [];
     let batchResponse = [];
-    let cancelConfig = {}
+    let cancelConfig = {};
+    let counter = 0;
 
     instance.interceptors.request.use((req) => {
         let originalRequest = req;
@@ -30,6 +31,13 @@ function batchInterceptor(instance) {
             delete currentRequest[req.url];
             source.cancel(cancelConfig);
         }
+
+        counter++;
+        console.log(
+            '%crequest NO. ' + counter + ' with these parameters: ',
+            'color: #01579B;',
+            originalRequest.params.ids 
+        )
 
         cancelConfig = {
             ids: originalRequest.params.ids
